@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="People.MainPage"
+             Title="Люди">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Управление списком людей"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Entry x:Name="nameEntry"
+               Placeholder="Введите имя"
+               FontSize="16" />
+
+        <Button Text="Добавить человека"
+                Clicked="OnAddPersonClicked"
+                BackgroundColor="Green"
+                TextColor="White" />
+
+        <Button Text="Получить всех людей"
+                Clicked="OnGetAllPeopleClicked"
+                BackgroundColor="Blue"
+                TextColor="White" />
+
+        <Label x:Name="statusLabel"
+               FontSize="14"
+               TextColor="Gray"
+               Margin="0,10,0,0" />
+
+        <ListView x:Name="peopleListView"
+                  Margin="0,20,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout Spacing="10" Padding="10">
+                            <Label Text="{Binding Name}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   WidthRequest="150" />
+                            <Button Text="Удалить"
+                                    Clicked="OnDeletePersonClicked"
+                                    BackgroundColor="Red"
+                                    TextColor="White"
+                                    WidthRequest="80"
+                                    HeightRequest="40"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="EndAndExpand" />
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
